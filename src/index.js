@@ -11,12 +11,12 @@ const gameEngine = (instruction, round) => {
   for (let i = 0; i < rounds; i += 1) {
     const [question, correctAnswer] = round();
     console.log(`Question: ${question}`);
-    const input = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    if (input === correctAnswer) {
+    if (userAnswer === correctAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${input}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
