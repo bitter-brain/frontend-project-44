@@ -17,7 +17,7 @@ const gameEngine = (instruction, round) => {
       console.log('Correct!');
     } else {
       console.log(`'${input}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      console.log(`Let's try again, ${userName}`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
   }
