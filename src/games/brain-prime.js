@@ -1,6 +1,6 @@
 import gameEngine from '../index.js';
 
-const instruction = 'Answer "yes" if the number is prime. Otherwise answer "no".';
+const instruction = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
 const isPrime = (num) => {
   if (num <= 1) return false;
