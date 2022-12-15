@@ -13,7 +13,7 @@ Brain Games is a set of console games based on popular mobile brain training app
     <li>brain-prime</li>
 </ul>
 
-## How to install "Brain Games"
+## How to install "Brain Games":
 <pre><code>make install</code></pre>
 
 ## How to start a game:
