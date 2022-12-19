@@ -1,18 +1,18 @@
-import gameEngine from '../index.js';
+import startGame, { getRandomNumber } from '../index.js';
 
 const instruction = 'Answer "yes" if the number is even, otherwise answer "no".';
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
 const isEven = (num) => num % 2 === 0;
 
-const round = () => {
-  const number = getRandomNumber(0, 100);
+const generateRound = () => {
+  const number = getRandomNumber();
   const correctAnswer = isEven(number) ? 'yes' : 'no';
   const question = `${number}`;
   return [question, correctAnswer];
 };
 
-const brainEven = () => {
-  gameEngine(instruction, round);
+const startBrainEven = () => {
+  startGame(instruction, generateRound);
 };
 
-export default brainEven;
+export default startBrainEven;
