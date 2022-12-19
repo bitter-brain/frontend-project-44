@@ -1,7 +1,7 @@
-import gameEngine from '../index.js';
+import startGame, { getRandomNumber } from '../index.js';
 
 const instruction = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
 const isPrime = (num) => {
   if (num <= 1) return false;
   if (num === 2) return true;
@@ -12,15 +12,15 @@ const isPrime = (num) => {
   return true;
 };
 
-const round = () => {
-  const number = getRandomNumber(1, 100);
+const generateRound = () => {
+  const number = getRandomNumber();
   const correctAnswer = isPrime(number) ? 'yes' : 'no';
   const question = `${number}`;
   return [question, correctAnswer];
 };
 
-const brainPrime = () => {
-  gameEngine(instruction, round);
+const startBrainPrime = () => {
+  startGame(instruction, generateRound);
 };
 
-export default brainPrime;
+export default startBrainPrime;
