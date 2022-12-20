@@ -1,37 +1,29 @@
-import gameEngine from '../index.js';
+import startGame, { getRandomNumber } from '../index.js';
 
 const instruction = 'What number is missing in the progression?';
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
-// const arithmeticSequenceMember = (number, s, n) => number + n * s;
-// const generateArithmeticSequence = (number, s, N) =>
-// Array.from({ length: N }, (_, n) => arithmeticSequenceMember(number, s, n));
-const generateArithmeticSequence = (number, difference, length) => {
-  let startNumber = number;
-  const dif = difference;
-  const range = length;
-  const result = [];
-  for (let i = 0; i < range; i += 1) {
-    result.push(startNumber);
-    startNumber += dif;
+
+const generateArithmeticSequence = (startNumber, step, progressionLength) => {
+  const arithmeticSequence = [startNumber];
+  for (let i = 1; i < progressionLength; i += 1) {
+    arithmeticSequence.push(arithmeticSequence[i - 1] + step);
   }
-  return result;
+  return arithmeticSequence;
 };
 
-const round = () => {
-  const firstNumber = getRandomNumber(1, 90);
+const generateRound = () => {
+  const firstNumber = getRandomNumber(1, 50);
   const difference = getRandomNumber(3, 10);
   const length = getRandomNumber(6, 10);
   const progression = generateArithmeticSequence(firstNumber, difference, length);
-  const hiddenElement = getRandomNumber(0, progression.length - 1);
-  const correctAnswer = String(progression[hiddenElement]);
-  progression[hiddenElement] = '..';
-  const progressionWithHiddenElement = progression.join(' ');
-  const question = `${progressionWithHiddenElement}`;
+  const hiddenNumIndex = getRandomNumber(0, length - 1);
+  const correctAnswer = String(progression[hiddenNumIndex]);
+  progression[hiddenNumIndex] = '..';
+  const question = `${progression.join(' ')}`;
   return [question, correctAnswer];
 };
 
-const brainProgression = () => {
-  gameEngine(instruction, round);
+const startBrainProgression = () => {
+  startGame(instruction, generateRound);
 };
 
-export default brainProgression;
+export default startBrainProgression;
