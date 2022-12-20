@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "type": "module",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/bitter-brain/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/bitter-brain/frontend-project-44/actions)",
+  "description": "Brain-Games is a set of console games, which allows you to play five small games and test your math skills",
   "bin": {
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
